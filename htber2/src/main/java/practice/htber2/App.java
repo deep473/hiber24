@@ -14,9 +14,21 @@ public class App
 		Session sess = sf.openSession();
 		sess.beginTransaction();
 
-		Employee emp = new Employee("Anil", 22000, "associate", "test");
-		sess.persist(emp);
+		Person p = new Person();
+		
+		AadharCard ac = 
+				new AadharCard(1111, "deep", "btm", "male", p);
+		
+		p.setId(101);
+		p.setNickName("dee");
+		p.setCard(ac);
+		
+		sess.persist(p);
+		sess.persist(ac);
 
 		sess.getTransaction().commit();
 	}
 }
+
+
+//https://github.com/deep473/hiber24
