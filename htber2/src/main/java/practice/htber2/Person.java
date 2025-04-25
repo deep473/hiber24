@@ -1,25 +1,28 @@
 package practice.htber2;
 
+import java.util.List;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 
 @Entity
 public class Person {
 	@Id
 	int id;
-	String nickName;
-	@OneToOne
-	AadharCard card;
+	String name;
+	@OneToMany
+	List<Bike> bikeList;
 	public Person() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Person(int id, String nickName, AadharCard card) {
+	public Person(int id, String name, List<Bike> bikeList) {
 		super();
 		this.id = id;
-		this.nickName = nickName;
-		this.card = card;
+		this.name = name;
+		this.bikeList = bikeList;
 	}
 	public int getId() {
 		return id;
@@ -27,21 +30,22 @@ public class Person {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getNickName() {
-		return nickName;
+	public String getName() {
+		return name;
 	}
-	public void setNickName(String nickName) {
-		this.nickName = nickName;
+	public void setName(String name) {
+		this.name = name;
 	}
-	public AadharCard getCard() {
-		return card;
+	public List<Bike> getBikeList() {
+		return bikeList;
 	}
-	public void setCard(AadharCard card) {
-		this.card = card;
+	public void setBikeList(List<Bike> bikeList) {
+		this.bikeList = bikeList;
 	}
 	@Override
 	public String toString() {
-		return "Person [id=" + id + ", nickName=" + nickName + ", card=" + card + "]";
+		return "Person [id=" + id + ", name=" + name + ", bikeList=" + bikeList + "]";
 	}
+	
 	
 }
